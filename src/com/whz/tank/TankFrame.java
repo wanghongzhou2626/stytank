@@ -10,10 +10,10 @@ import java.awt.event.WindowEvent;
 
 public class TankFrame extends Frame{
 	
-	Dir dir = Dir.DOWN;
-	static int x = 200, y = 200;
-	private static final int speed = 10; 
-	
+//	Dir dir = Dir.DOWN;
+//	static int x = 200, y = 200;
+//	private static final int speed = 10; 
+	Tank tank = new Tank(200, 200, Dir.DOWN);
 	public TankFrame() {
 		this.setSize(600, 600);
 		
@@ -35,27 +35,8 @@ public class TankFrame extends Frame{
 
 	@Override
 	public void paint(Graphics g) {
-		g.fillRect(x, y, 50, 50);
-		//x += 50;
-		//y += 50;
-		switch (dir) {
-		case LEFT:
-			x -= speed;
-			break;
-		case RIGHT:
-			x += speed;
-			break;
-		case UP:
-			y -= speed;
-			break;
-		case DOWN:
-			y += speed;
-			break;
-
-		default:
-			break;
-		}
-		System.out.println("paint");
+		tank.paint(g);
+		
 	}
 	
 	class MyKeyEvent extends KeyAdapter {
@@ -66,6 +47,7 @@ public class TankFrame extends Frame{
 		
 		@Override
 		public void keyPressed(KeyEvent e) {
+			//tank.tankMove(e);
 			int key = e.getExtendedKeyCode();
 			switch (key) {
 			case KeyEvent.VK_LEFT:
@@ -118,17 +100,14 @@ public class TankFrame extends Frame{
 		}
 		
 		private void SetMainTankDir() {
-			
-			if(bl) dir = Dir.LEFT;
-			if(br) dir = dir.RIGHT;
-			if(bu) dir = dir.UP;
-			if(bd) dir = dir.DOWN;
-			
+			if(!bl && !br && !bu && !bd) tank.setMoveing(false);
+			else {
+				tank.setMoveing(true);
+				if(bl) tank.setDir(Dir.LEFT); 
+				if(br) tank.setDir(Dir.RIGHT); 
+				if(bu) tank.setDir(Dir.UP); 
+				if(bd) tank.setDir(Dir.DOWN);
+			}
 		}
-		
 	}
-	
-	
-
-
 }
