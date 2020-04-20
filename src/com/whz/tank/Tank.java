@@ -71,12 +71,12 @@ public class Tank {
 	public void paint(Graphics g) {
 		// TODO Auto-generated method stub
 		g.fillRect(x, y, 50, 50);
-		move();
+		tankMove();
 		
 	}
 
 
-	private void move() {
+	private void tankMove() {
 		// TODO Auto-generated method stub
 		if(!moveing) return;
 		switch (dir) {

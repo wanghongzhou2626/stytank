@@ -10,10 +10,9 @@ import java.awt.event.WindowEvent;
 
 public class TankFrame extends Frame{
 	
-//	Dir dir = Dir.DOWN;
-//	static int x = 200, y = 200;
-//	private static final int speed = 10; 
+
 	Tank tank = new Tank(200, 200, Dir.DOWN);
+	Buttle buttle = new Buttle(300, 300, Dir.DOWN);
 	public TankFrame() {
 		this.setSize(600, 600);
 		
@@ -36,6 +35,7 @@ public class TankFrame extends Frame{
 	@Override
 	public void paint(Graphics g) {
 		tank.paint(g);
+		buttle.paint(g);
 		
 	}
 	
