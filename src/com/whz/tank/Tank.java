@@ -1,5 +1,6 @@
 package com.whz.tank;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
@@ -70,7 +71,10 @@ public class Tank {
 
 	public void paint(Graphics g) {
 		// TODO Auto-generated method stub
+		Color color = g.getColor();
+		g.setColor(color.red);
 		g.fillRect(x, y, 50, 50);
+		g.setColor(color);
 		tankMove();
 		
 	}
