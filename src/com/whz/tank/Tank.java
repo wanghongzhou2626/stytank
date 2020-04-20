@@ -105,8 +105,12 @@ public class Tank {
 	}
 
 
+	/**
+	 * 使用ctrl后根据坦克当前位置发射出来一颗子弹。 
+	 * 使用tankframe的引用来对buttle进行复制使用。
+	 */
 	public void fire() {
-		tankFrame.buttle = new Buttle(this.x, this.y, this.dir);
+		tankFrame.list.add(new Buttle(this.x, this.y, this.dir, this.tankFrame));
 		// TODO Auto-generated method stub
 	}
 

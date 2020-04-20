@@ -8,15 +8,19 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class TankFrame extends Frame{
 	
-	private static final int GAME_WIDTH = 800;
-	private static final int GAME_HEIGHT = 600;
+	static final int GAME_WIDTH = 800;
+	static final int GAME_HEIGHT = 600;
 
 	Tank tank = new Tank(200, 200, Dir.DOWN, this);
-	Buttle buttle = new Buttle(300, 300, Dir.DOWN);
+	
+	//子弹容器
+	List<Buttle> list = new ArrayList<>();
 	
 	public TankFrame() {	
 		this.setSize(GAME_WIDTH, GAME_HEIGHT);
@@ -56,8 +60,14 @@ public class TankFrame extends Frame{
 	
 	@Override
 	public void paint(Graphics g) {
+		Color color = g.getColor();
+		g.setColor(color.white);
+		g.drawString("子弹的数量："+list.size(), 10, 60);
+		g.setColor(color);
 		tank.paint(g);
-		buttle.paint(g);
+		for(int i=0; i<list.size(); i++) {
+			list.get(i).paint(g);
+		}
 		
 	}
 	
