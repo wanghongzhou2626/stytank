@@ -2,7 +2,6 @@ package com.whz.tank;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.event.KeyEvent;
 
 public class Tank {
 	
@@ -11,7 +10,17 @@ public class Tank {
 	private static final int speed = 10;
 	private boolean moveing = false;
 	
+	private TankFrame tankFrame = null;
 	
+	
+
+	public Tank(int x, int y, Dir dir, TankFrame tankFrame) {
+		super();
+		this.x = x;
+		this.y = y;
+		this.dir = dir;
+		this.tankFrame = tankFrame;
+	}
 
 
 
@@ -61,13 +70,6 @@ public class Tank {
 	}
 
 
-	public Tank(int x, int y, Dir dir) {
-		super();
-		this.x = x;
-		this.y = y;
-		this.dir = dir;
-	}
-
 
 	public void paint(Graphics g) {
 		// TODO Auto-generated method stub
@@ -100,6 +102,12 @@ public class Tank {
 		default:
 			break;
 		}
+	}
+
+
+	public void fire() {
+		tankFrame.buttle = new Buttle(this.x, this.y, this.dir);
+		// TODO Auto-generated method stub
 	}
 
 

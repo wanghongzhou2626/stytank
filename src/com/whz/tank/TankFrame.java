@@ -15,8 +15,9 @@ public class TankFrame extends Frame{
 	private static final int GAME_WIDTH = 800;
 	private static final int GAME_HEIGHT = 600;
 
-	Tank tank = new Tank(200, 200, Dir.DOWN);
+	Tank tank = new Tank(200, 200, Dir.DOWN, this);
 	Buttle buttle = new Buttle(300, 300, Dir.DOWN);
+	
 	public TankFrame() {	
 		this.setSize(GAME_WIDTH, GAME_HEIGHT);
 		
@@ -113,7 +114,9 @@ public class TankFrame extends Frame{
 			case KeyEvent.VK_DOWN:
 				bd = false;
 				break;
-
+			case KeyEvent.VK_CONTROL://抬起ctrl发射一颗子弹.
+				tank.fire();
+				break;
 			default:
 				break;
 			}
