@@ -72,11 +72,9 @@ public class Tank {
 
 
 	public void paint(Graphics g) {
-		// TODO Auto-generated method stub
-		Color color = g.getColor();
-		g.setColor(color.red);
-		g.fillRect(x, y, 50, 50);
-		g.setColor(color);
+		//画tank图片
+		g.drawImage(ResourceMgr.tankL, x, y, null);
+		//
 		tankMove();
 		
 	}
