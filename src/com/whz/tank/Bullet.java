@@ -29,7 +29,7 @@ public class Bullet {
 	public void paint(Graphics g) {
 		//如果当前的为假 那么在容器中删除这颗子弹
 		if(!living) {
-			tankFrame.list.remove(this);
+			tankFrame.bulletList.remove(this);
 		}
 //		Color color = g.getColor();
 //		g.setColor(color.yellow);

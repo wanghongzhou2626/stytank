@@ -16,11 +16,15 @@ public class TankFrame extends Frame{
 	
 	static final int GAME_WIDTH = 800;
 	static final int GAME_HEIGHT = 600;
-
-	Tank tank = new Tank(200, 200, Dir.DOWN, this);
+	
+	//自己的tank
+	Tank tank = new Tank(200, 400, Dir.DOWN, this);
 	
 	//子弹容器
-	List<Bullet> list = new ArrayList<>();
+	List<Bullet> bulletList = new ArrayList<>();
+	
+	//敌人的tank
+	List<Tank> tankList = new ArrayList<>();
 	
 	public TankFrame() {	
 		this.setSize(GAME_WIDTH, GAME_HEIGHT);
@@ -62,11 +66,18 @@ public class TankFrame extends Frame{
 	public void paint(Graphics g) {
 		Color color = g.getColor();
 		g.setColor(color.white);
-		g.drawString("子弹的数量："+list.size(), 10, 60);
+		g.drawString("子弹的数量："+bulletList.size(), 10, 60);
 		g.setColor(color);
+		//画自己的tank
 		tank.paint(g);
-		for(int i=0; i<list.size(); i++) {
-			list.get(i).paint(g);
+		//画子弹
+		for(int i=0; i<bulletList.size(); i++) {
+			bulletList.get(i).paint(g);
+		}
+		
+		//画敌人
+		for(int i=0; i<tankList.size(); i++) {
+			tankList.get(i).paint(g);
 		}
 		
 	}

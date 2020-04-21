@@ -129,7 +129,7 @@ public class Tank {
 		//子弹打出位置
 		int bX = this.x + WIDTH/2 - Bullet.WIDTH/2;
 		int bY = this.y + HEIGHT/2 - Bullet.HEIGHT/2;
-		tankFrame.list.add(new Bullet(bX, bY, this.dir, this.tankFrame));
+		tankFrame.bulletList.add(new Bullet(bX, bY, this.dir, this.tankFrame));
 		// TODO Auto-generated method stub
 	}
 
