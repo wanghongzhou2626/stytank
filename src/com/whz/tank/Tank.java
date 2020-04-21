@@ -1,6 +1,5 @@
 package com.whz.tank;
 
-import java.awt.Color;
 import java.awt.Graphics;
 
 public class Tank {
@@ -9,6 +8,9 @@ public class Tank {
 	private int y = 200;
 	private static final int speed = 10;
 	private boolean moveing = false;
+	
+	public static final int WIDTH = ResourceMgr.tankL.getWidth();
+	public static final int HEIGHT = ResourceMgr.tankL.getHeight();
 	
 	private TankFrame tankFrame = null;
 	
@@ -124,7 +126,10 @@ public class Tank {
 	 * 使用tankframe的引用来对buttle进行复制使用。
 	 */
 	public void fire() {
-		tankFrame.list.add(new Bullet(this.x, this.y, this.dir, this.tankFrame));
+		//子弹打出位置
+		int bX = this.x + WIDTH/2 - Bullet.WIDTH/2;
+		int bY = this.y + HEIGHT/2 - Bullet.HEIGHT/2;
+		tankFrame.list.add(new Bullet(bX, bY, this.dir, this.tankFrame));
 		// TODO Auto-generated method stub
 	}
 

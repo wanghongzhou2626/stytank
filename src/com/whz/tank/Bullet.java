@@ -8,8 +8,8 @@ public class Bullet {
 	private static int speed = 10; //子弹速度
 	private int x;
 	private int y;
-	private static final int WIDTH = 30;
-	private static final int HEIGHT = 30;
+	public static final int WIDTH = ResourceMgr.bulletL.getWidth();
+	public static final int HEIGHT = ResourceMgr.bulletL.getHeight();
 	
 	//判断子弹是否存活（超出边界就在集合中减少一个，要不会造成内存溢出） 一定不能是static的 那样的话就变成了所有类所共享的了
 	private boolean living = true;
