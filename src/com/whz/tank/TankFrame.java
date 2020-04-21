@@ -20,7 +20,7 @@ public class TankFrame extends Frame{
 	Tank tank = new Tank(200, 200, Dir.DOWN, this);
 	
 	//子弹容器
-	List<Buttle> list = new ArrayList<>();
+	List<Bullet> list = new ArrayList<>();
 	
 	public TankFrame() {	
 		this.setSize(GAME_WIDTH, GAME_HEIGHT);

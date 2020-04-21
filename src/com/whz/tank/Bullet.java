@@ -3,7 +3,7 @@ package com.whz.tank;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Buttle {
+public class Bullet {
 	
 	private static int speed = 10; //子弹速度
 	private int x;
@@ -18,7 +18,7 @@ public class Buttle {
 	
 	private Dir dir;//子弹方向
 	
-	public Buttle(int x, int y, Dir dir, TankFrame tankFrame) {
+	public Bullet(int x, int y, Dir dir, TankFrame tankFrame) {
 		super();
 		this.x = x;
 		this.y = y;
@@ -31,10 +31,15 @@ public class Buttle {
 		if(!living) {
 			tankFrame.list.remove(this);
 		}
-		Color color = g.getColor();
-		g.setColor(color.yellow);
-		g.fillOval(x, y, WIDTH, HEIGHT);
-		g.setColor(color);
+//		Color color = g.getColor();
+//		g.setColor(color.yellow);
+//		g.fillOval(x, y, WIDTH, HEIGHT);
+//		g.setColor(color);
+		
+		g.drawImage(ResourceMgr.bulletL, x, y, null);
+		g.drawImage(ResourceMgr.bulletR, x, y, null);
+		g.drawImage(ResourceMgr.bulletU, x, y, null);
+		g.drawImage(ResourceMgr.bulletD, x, y, null);
 		buttleMove();
 	}
 	

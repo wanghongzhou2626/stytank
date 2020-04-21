@@ -73,7 +73,23 @@ public class Tank {
 
 	public void paint(Graphics g) {
 		//画tank图片
-		g.drawImage(ResourceMgr.tankL, x, y, null);
+		switch (dir) {
+		case LEFT:
+			g.drawImage(ResourceMgr.tankL, x, y, null);
+			break;
+		case RIGHT:
+			g.drawImage(ResourceMgr.tankR, x, y, null);
+			break;
+		case UP:
+			g.drawImage(ResourceMgr.tankU, x, y, null);
+			break;
+		case DOWN:
+			g.drawImage(ResourceMgr.tankD, x, y, null);
+			break;
+
+		default:
+			break;
+		}
 		//
 		tankMove();
 		
@@ -108,7 +124,7 @@ public class Tank {
 	 * 使用tankframe的引用来对buttle进行复制使用。
 	 */
 	public void fire() {
-		tankFrame.list.add(new Buttle(this.x, this.y, this.dir, this.tankFrame));
+		tankFrame.list.add(new Bullet(this.x, this.y, this.dir, this.tankFrame));
 		// TODO Auto-generated method stub
 	}
 
