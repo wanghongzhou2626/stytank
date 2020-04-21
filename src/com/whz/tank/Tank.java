@@ -1,6 +1,7 @@
 package com.whz.tank;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 public class Tank {
 	
@@ -8,6 +9,7 @@ public class Tank {
 	private int y = 200;
 	private static final int speed = 10;
 	private boolean moveing = false;
+	private boolean living = true;
 	
 	public static final int WIDTH = ResourceMgr.tankL.getWidth();
 	public static final int HEIGHT = ResourceMgr.tankL.getHeight();
@@ -74,6 +76,9 @@ public class Tank {
 
 
 	public void paint(Graphics g) {
+		if(!living) {
+			tankFrame.tankList.remove(this);
+		};
 		//画tank图片
 		switch (dir) {
 		case LEFT:
@@ -131,6 +136,32 @@ public class Tank {
 		int bY = this.y + HEIGHT/2 - Bullet.HEIGHT/2;
 		tankFrame.bulletList.add(new Bullet(bX, bY, this.dir, this.tankFrame));
 		// TODO Auto-generated method stub
+	}
+
+
+
+	/**
+	 * 子弹与坦克进行碰撞检测的方法
+	 * @param bullet
+	 */
+	public void collideWith(Bullet bullet) {
+		Rectangle rectangle_bullet = new Rectangle(bullet.getX(), bullet.getY(), bullet.WIDTH, bullet.HEIGHT);
+		Rectangle rectangle_tank = new Rectangle(this.x, this.y, WIDTH, HEIGHT);
+		if(rectangle_bullet.intersects(rectangle_tank)) {
+			this.die();
+			bullet.die();
+		}
+		
+		
+	}
+
+
+
+	/**
+	 * tank被子弹打中后消失 在容器中删除
+	 */
+	private void die() {
+		living = false;
 	}
 
 
